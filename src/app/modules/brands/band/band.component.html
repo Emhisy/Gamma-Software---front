@@ -1,0 +1,107 @@
+
+<div class="band-body">
+    <div class="container">
+        <form [formGroup]="bandForm">
+            <div class="form-row">
+                <mat-form-field class="input-data"
+                        [ngClass]="{'valid-field': this.bandForm.get('name')?.dirty && updated.name}">
+                    <mat-label>Nom</mat-label>
+                    <input formControlName="name"
+                        type="text"
+                        matInput
+                        required>
+                    <mat-error *ngIf="bandForm.get('name')?.hasError('empty')">Ce champ est obligatoire</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field class="input-data"
+                        [ngClass]="{'valid-field': this.bandForm.get('origin')?.dirty && updated.origin}">
+                    <mat-label>Origine</mat-label>
+                    <input formControlName="origin"
+                        type="text"
+                        matInput>
+                </mat-form-field>
+            </div>
+            
+            <div class="form-row">
+                <mat-form-field class="input-data"
+                        [ngClass]="{'valid-field': this.bandForm.get('city')?.dirty && updated.city}">
+                    <mat-label>Ville</mat-label>
+                    <input formControlName="city"
+                        type="text"
+                        matInput>
+                </mat-form-field>
+            </div>
+            
+            <div class="form-row">
+                <mat-form-field class="input-data" [ngClass]="{'valid-field': this.bandForm.get('startDate')?.dirty && updated.startDate}">
+                    <mat-label>Année début</mat-label>
+                    <input formControlName="startDate"  matInput [matDatepicker]="datepicker1">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker1>
+                        <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Annuler</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
+                </mat-form-field>
+            
+            
+                <mat-form-field class="input-data" [ngClass]="{'valid-field': this.bandForm.get('endDate')?.dirty && updated.endDate}">
+                    <mat-label>Année séparation</mat-label>
+                    <input formControlName="endDate"  matInput [matDatepicker]="datepicker2">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker2>
+                        <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Annuler</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
+                </mat-form-field>
+            </div>
+            
+            <div class="form-row">
+                <mat-form-field class="input-data"
+                        [ngClass]="{'valid-field': this.bandForm.get('founder')?.dirty && updated.founder}">
+                    <mat-label>Fondateurs</mat-label>
+                    <input formControlName="founder"
+                        type="text"
+                        matInput>
+                    <mat-error *ngIf="bandForm.get('founder')?.hasError('empty')">Ce champ est obligatoire</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="input-data"
+                        [ngClass]="{'valid-field': this.bandForm.get('totalMember')?.dirty && updated.totalMember}">
+                        <mat-label>Membre</mat-label>
+
+                    <input formControlName="totalMember"
+                        type="number"
+                        min="1"
+                        matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="form-row">
+                    <mat-form-field class="input-data"
+                            [ngClass]="{'valid-field': this.bandForm.get('genre')?.dirty && updated.genre}">
+                        <mat-label>Courant musical</mat-label>
+                        <input formControlName="genre"
+                            type="text"
+                            matInput>
+                    </mat-form-field>
+
+                    
+                    
+                    <mat-form-field class="input-data"
+                            [ngClass]="{'valid-field': this.bandForm.get('description')?.dirty && updated.genre}">
+                        <mat-label>
+                            <mat-label>Présentation</mat-label></mat-label>
+                        <textarea formControlName="description"
+                            type="text"
+                            matInput> </textarea>
+                    </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>

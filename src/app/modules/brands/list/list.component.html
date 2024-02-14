@@ -1,0 +1,32 @@
+
+<div class="list-body">
+
+    <div class ="container">
+        <h1>Groupe de musique</h1>
+        <div>
+            <button appWaitLoading
+                (click)="onCreate()" mat-flat-button>
+                Ajouter
+            </button>
+            <input type="file" #uploadButton (change)="uploadFile($event)"  mat-flat-button>
+        </div>
+
+        <ng-container *ngFor="let band of bands;  let index = index" class="form-row">
+            <div class="band">
+
+                <a [routerLink]="['/', 'bands', band.id]" data-index="0" class="left">
+                    <div class="band-name">{{ band.name }}  </div>
+                </a>
+                <div class="action-button right">
+                    <button appWaitLoading
+                        (click)="onDelete(index)" mat-flat-button>
+                        <!-- <mat-icon class="icon-size-4"
+                            [svgIcon]="'heroicons_solid:trash'">
+                        </mat-icon> -->
+                        Supprimer
+                    </button>
+                </div>
+            </div>
+        </ng-container> 
+    </div>
+</div>
